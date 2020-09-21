@@ -1,0 +1,42 @@
+node {
+  
+  stage('GIT CheckOut') {
+    git 'https://github.com/ruchi672/todo-micro.git'
+  }
+
+  stage('Maven-Clean') {
+    sh label: '', script: 'mvn clean -DskipTests'
+  }
+
+  stage('Maven-Compile') {
+    sh label: '', script: 'mvn compile'
+  }
+  
+  stage('Maven-Test') {
+    sh label: '', script: 'mvn test'
+  }
+
+
+ stage('Sonar Analysis') {
+   withSonarQubeEnv('sonar') {
+        sh "mvn sonar:sonar"
+    }
+  }
+  
+  stage('Maven-Package') {
+    sh label: '', script: 'mvn package'
+  }
+            
+ stage('Docker-Stage-Deployment') {
+   sh label: '', script: 'docker build -t todomicroservice:latest ./todo-microservice/'
+  }
+  
+  stage('Pushing DockerImage to DockerHub') {
+		    sh label: '', script: 'docker login -u ruchi672 -pRishu@672'
+		    sh label: '', script: 'docker tag todomicroservice:latest ruchi672/todomicroservice:latest'
+		    sh label: '', script: 'docker push ruchi672/todomicroservice'
+		  }
+   
+  
+        
+}
