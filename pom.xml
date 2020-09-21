@@ -10,7 +10,6 @@
 
 	<modules>
 		<module>todo-microservice</module>
-		<module>user-microservice</module>
 	</modules>
 
 	<parent>
