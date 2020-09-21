@@ -33,7 +33,7 @@ node {
   
   stage('Pushing DockerImage to DockerHub') {
 	  docker.withRegistry('', 'ruchi-dockerhub' ) {
-		    sh label: '', script: 'docker push ruchi672/todo:$BUILD_NUMBER'
+		    sh label: '', script: 'docker push ruchi672/todomicroservice:$BUILD_NUMBER'
 		  }
    
   }
