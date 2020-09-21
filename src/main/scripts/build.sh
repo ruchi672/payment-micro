@@ -1,5 +1,5 @@
 cd ../../../todo-microservice
-mvn clean install docker:build -DpushImage 
+mvn package
+sudo docker build -t ruchi672/todomicroservice:latest .
+sudo docker push ruchi672/todomicroservice:latest
 
-cd ../user-microservice
-mvn clean install docker:build -DpushImage 
