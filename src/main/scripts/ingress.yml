@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: spring-boot-microservice-ingress
+spec:
+  rules:
+  - host: kube.all
+    http:
+      paths:
+      - path: /todo
+        backend:
+          serviceName: todo-microservice
+          servicePort: 8000
