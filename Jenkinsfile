@@ -28,7 +28,7 @@ node {
   }
             
  stage('Docker-Stage-Deployment') {
-   sh label: '', script: 'docker-compose up -d --build'
+   sh label: '', script: 'docker build -t ruchi672/todomicroservice:latest .'
   }
   
   stage('Pushing DockerImage to DockerHub') {
