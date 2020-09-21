@@ -1,7 +1,7 @@
 node {
   
   stage('GIT CheckOut') {
-    git 'https://github.com/ruchi672/projectRepository.git'
+    git 'https://github.com/ruchi672/todo-micro.git'
   }
 
   stage('Maven-Clean') {
@@ -33,7 +33,7 @@ node {
   
   stage('Pushing DockerImage to DockerHub') {
 	  docker.withRegistry('', 'ruchi-dockerhub' ) {
-		    sh label: '', script: 'docker push ruchi672/todomicroservice:$BUILD_NUMBER'
+		    sh label: '', script: 'docker push ruchi672/todo:$BUILD_NUMBER'
 		  }
    
   }
