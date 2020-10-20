@@ -19,8 +19,9 @@ pipeline {
                 verifyDeployments: true])
             }
         }
-       stage('Deploy to cluster') {
-    sh label: '', script: 'kubectl get all'
-  }
+    }
+    stage('Deploy to cluster') {
+        sh label: '', script: 'kubectl get all'
+  
     }
 }
