@@ -14,7 +14,7 @@ pipeline {
                 projectId: env.PROJECT_ID,
                 clusterName: env.CLUSTER_NAME,
                 location: env.LOCATION,
-                manifestPattern: 'src/main/scripts/service-todo.yml',
+                manifestPattern: 'src/main/scripts/ingress.yml',
                 credentialsId: env.CREDENTIALS_ID,
                 verifyDeployments: true])
             }
