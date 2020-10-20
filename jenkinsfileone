@@ -20,8 +20,4 @@ pipeline {
             }
         }
     }
-    stage('Deploy to cluster') {
-        sh label: '', script: 'kubectl get all'
-  
-    }
 }
