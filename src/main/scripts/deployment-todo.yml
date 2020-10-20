@@ -19,3 +19,13 @@ spec:
         image: ruchi672/todo-microservice:latest
         ports:
         - containerPort: 8000
+kind: Service
+metadata:
+  name: todo-microservice
+spec:
+  ports:
+    - port: 8000
+      targetPort: 8000
+  selector:
+    app: todo-microservice
+  type: NodePort
